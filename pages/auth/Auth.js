@@ -96,12 +96,12 @@ export default function Auth() {
     const db = getFirestore();
 
     if (loading) {
-        return <div>Loading...</div>
+        return <div className="top-1/2 left-1/2 flex justify-center items-center">Loading...</div>
     }
 
     if (user) {
         router.push('/Dashboard')
-        return <div>Loading...</div>
+        return <div className="top-1/2 left-1/2 flex justify-center items-center">Loading...</div>
     }
 
     const signInWithGoogle = async() => {
