@@ -80,7 +80,7 @@ export default function Dashboard () {
                         <ListItemButton onClick={handleClick} sx={{padding: 0}}>
                             <ListItemIcon  sx={{ml: 0}}>
                             <Stack direction="row" spacing={2}>
-                            <Avatar alt={user ? user.displayName : ''} src={user ? user.photoURL : ''} />
+                            <Avatar alt={user.displayName} src={user.photoURL} />
                             </Stack>
                             </ListItemIcon>
                             <ListItemText primary={user ? user.username : ''} sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
@@ -182,7 +182,7 @@ export default function Dashboard () {
                         </ImageListItem>
                     </Link>
                 </ImageList>
-                <h2>Files from last week</h2>
+                <h2 className="mt-6">Files from last week</h2>
                 <ImageList sx={{ width: '100%', height: 450 }} cols={3}>
                     <Link href='/VideoDisplay'>
                         <ImageListItem sx={{border: '1px solid gray', borderRadius: '12px'}}>
