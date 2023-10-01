@@ -15,6 +15,11 @@ import Link from '@mui/material/Link';
 import DrawIcon from '@mui/icons-material/Draw';
 import styled from 'styled-components';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const VideoBox = styled.div`
     display: flex;
@@ -37,6 +42,11 @@ const VideoBox = styled.div`
 
 export default function VideoDisplay() {
     const [open, setOpen] = React.useState(true);
+    const [language, setLanguage] = React.useState('');
+
+    const handleChange = (event) => {
+        setLanguage(event.target.value);
+    };
 
     const handleClick = () => {
         setOpen(!open);
@@ -173,6 +183,35 @@ export default function VideoDisplay() {
                             </button>
                         </div>
                     </div>
+                    <div className='flex flex-col w-full justify-center items-start mt-5 mb-28 gap-10'>
+                            <div className='flex flex-col items-start gap-4'>
+                                <h3 className='text-2xl'>Transcript</h3>
+                                <Box sx={{ minWidth: 120 }}>
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                                        <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={language}
+                                        label="Language"
+                                        onChange={handleChange}
+                                        >
+                                        <MenuItem value={10}>English</MenuItem>
+                                        <MenuItem value={20}>Spanish</MenuItem>
+                                        <MenuItem value={30}>Arabic</MenuItem>
+                                        <MenuItem value={40}>French</MenuItem>
+                                        <MenuItem value={50}>German</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </div>
+                            <div className='flex flex-col items-start gap-4'>
+                                <div className='flex flex-row gap-6'>
+                                    <h6 className='text-base text-[#141414]'>Time</h6>
+                                    <h5 className='text-base'>transcripted notes</h5>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </Center>
         </>
