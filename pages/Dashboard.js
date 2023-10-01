@@ -41,7 +41,9 @@ export default function Dashboard () {
       }, [auth, db]);
 
     if (loading) {
-        return <div>loading..</div>
+        if (loading) {
+            return <div className="mt-[50%] ml-[50%] flex justify-center items-center">Loading...</div>
+        }
     }
 
     if (!user) {

@@ -65,8 +65,11 @@ export default function VideoDisplay() {
         });
       }, [auth, db]);
 
-      if (loading) {
-        return <div>loading..</div>
+      
+    if (loading) {
+        if (loading) {
+            return <div className="mt-[50%] ml-[50%] flex justify-center items-center">Loading...</div>
+        }
     }
 
     if (!user) {
@@ -113,10 +116,10 @@ export default function VideoDisplay() {
                         <ListItemButton onClick={handleClick} sx={{padding: 0}}>
                             <ListItemIcon  sx={{ml: 0}}>
                             <Stack direction="row" spacing={2}>
-                            <Avatar alt={user.displayName} src={user.photoURL} />
+                                <Avatar alt="" src="/static/images/avatar/1.jpg" />
                             </Stack>
                             </ListItemIcon>
-                            <ListItemText primary={user.displayName} sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
+                            <ListItemText primary="Sultan Adeleke" sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
                             {open ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                         <Collapse in={open} timeout="auto" unmountOnExit>
