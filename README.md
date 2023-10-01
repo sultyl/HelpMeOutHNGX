@@ -3,6 +3,9 @@ It is a frontend repository for a google chrome extension that I built
 
 Here is the extension link [https://drive.google.com/drive/folders/1vsMaAycJIIm9IJeEkseAjBH2hFhSK9-i]
 
+TO get to the guest page here is the link
+[https://helpmeout-hngx-extension.vercel.app/guest/GuestPage]
+
 After downloading the contents in a single folder you extract it and then open your chrome extension and change it to developer mode then select load unpacked and then paste the folder there then go to your extensions tab and then pin the extension then click on the start recording to start your screen record
 
 ## Getting Started after cloning
