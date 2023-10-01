@@ -1,9 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+It is a frontend repository for a google chrome extension that I built
 
-## Getting Started
+Here is the extension link [https://drive.google.com/drive/folders/1vsMaAycJIIm9IJeEkseAjBH2hFhSK9-i]
 
-First, run the development server:
+After downloading the contents in a single folder you extract it and then open your chrome extension and change it to developer mode then select load unpacked and then paste the folder there then go to your extensions tab and then pin the extension then click on the start recording to start your screen record
 
+## Getting Started after cloning
+```git clone```
+```npm install --legacy-peer-deps```
+then, run the development server:
 ```bash
 npm run dev
 # or
