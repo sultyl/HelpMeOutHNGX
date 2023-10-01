@@ -25,7 +25,7 @@ export default function Hero() {
     return (
         <div className="flex lg:flex-row xsm:flex-col my-24 gap-3 items-center">
             <div className="flex flex-col w-full lg:gap-5">
-                <h2 className="text-[#141414] text-lg lg:text-[64px] font-bold leading-[64px]">Show Them Don`&apos;`t Just Tell</h2>
+                <h2 className="text-[#141414] text-lg lg:text-[64px] font-bold leading-[64px]">Show Them Don&apos;t Just Tell</h2>
                 <p className="text-[##3D3D3D] text-sm lg:text-xl leading-[28px]">Help your friends and loved ones by creating and sending videos on how to get things done on a website.</p>
                 <Button>
                     Install HelpMeOut
