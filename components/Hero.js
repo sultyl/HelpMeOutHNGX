@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { AiOutlineArrowRight } from "react-icons/ai";
+import Link from "next/link";
 
-const Button = styled.button`
+const Button = styled(Link)`
     display: flex;
     width: 45%;
     font-size: 18px;
@@ -10,6 +11,7 @@ const Button = styled.button`
     align-items: center;
     gap: 10px;
     border-radius: 8px;
+    text-decoration: none;
     background: var(--primary-main, #120B48);
     color: #FFFFFF;
     margin-top: 28px;
@@ -27,7 +29,7 @@ export default function Hero() {
             <div className="flex flex-col w-full lg:gap-5">
                 <h2 className="text-[#141414] text-lg lg:text-[64px] font-bold leading-[64px]">Show Them Don&apos;t Just Tell</h2>
                 <p className="text-[##3D3D3D] text-sm lg:text-xl leading-[28px]">Help your friends and loved ones by creating and sending videos on how to get things done on a website.</p>
-                <Button>
+                <Button href='https://drive.google.com/drive/folders/1vsMaAycJIIm9IJeEkseAjBH2hFhSK9-i'>
                     Install HelpMeOut
                     <AiOutlineArrowRight />
                 </Button>
