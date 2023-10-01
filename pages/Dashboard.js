@@ -83,7 +83,7 @@ export default function Dashboard () {
                             <Avatar alt={user.displayName} src={user.photoURL} />
                             </Stack>
                             </ListItemIcon>
-                            <ListItemText primary={user ? user.username : ''} sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
+                            <ListItemText primary={user.displayName} sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
                             {open ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                         <Collapse in={open} timeout="auto" unmountOnExit>
