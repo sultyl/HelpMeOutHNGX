@@ -20,6 +20,11 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { getAuth } from "firebase/auth";
+import { useRouter } from "next/router";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { app } from "@/Firebase/FirebaseApp";
 
 const VideoBox = styled.div`
     display: flex;
@@ -43,6 +48,31 @@ const VideoBox = styled.div`
 export default function VideoDisplay() {
     const [open, setOpen] = React.useState(true);
     const [language, setLanguage] = React.useState('');
+    const auth = getAuth(app);
+    const router = useRouter();
+    const [user, loading] = useAuthState(auth);
+    const db = getFirestore(app);
+
+    React.useEffect(() => {
+        return auth.onAuthStateChanged(async (user) => {
+          if (user) {
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
+            setUser(userDoc.data());
+          } else {
+            setUser(null);
+            router.push('/auth'); // redirect to login page
+          }
+        });
+      }, [auth, db]);
+
+      if (loading) {
+        return <div>loading..</div>
+    }
+
+    if (!user) {
+        router.push('auth/Auth');
+        <div>Please sign in to continue</div>
+    }
 
     const handleChange = (event) => {
         setLanguage(event.target.value);
@@ -83,10 +113,10 @@ export default function VideoDisplay() {
                         <ListItemButton onClick={handleClick} sx={{padding: 0}}>
                             <ListItemIcon  sx={{ml: 0}}>
                             <Stack direction="row" spacing={2}>
-                                <Avatar alt="" src="/static/images/avatar/1.jpg" />
+                            <Avatar alt={user.displayName} src={user.photoURL} />
                             </Stack>
                             </ListItemIcon>
-                            <ListItemText primary="Sultan Adeleke" sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
+                            <ListItemText primary={user.displayName} sx={{'& .MuiTypography-root': { fontSize: '15px' }}}/>
                             {open ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -95,7 +125,9 @@ export default function VideoDisplay() {
                                 <ListItemIcon>
                                 <LogoutIcon />
                                 </ListItemIcon>
-                                <ListItemText primary="Logout" />
+                                <button onClick={() => auth.signOut()}>
+                                    <ListItemText primary="Logout" />
+                                </button>
                             </ListItemButton>
                             </List>
                         </Collapse>
